@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Webpage</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #header {
+			width: 100%;
+			height: 20vh; /* Adjust the height of the header/logo container */
+			background-color: #f0f0f0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#logo {
+			max-width: 100%; /* Ensure the logo fits the width of the container */
+			max-height: 120%; /* Ensure the logo fits the height of the container */
+		}
+
+        #logo {
+            max-width: 100%; /* Logo takes full width */
+            max-height: 100%; /* Logo takes full height */
+            width: auto;
+            height: auto;
+        }
+
+        #table-container {
+			width: 100%;
+			height: 60vh; /* Adjust the height of the table container */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 120px; /* Add margin to create space between logo and table */
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 80%; /* Adjust the width of the table */
+			max-width: 150%; /* Ensure the table fits within the screen */
+			text-align: center;
+		}
+
+		th, td {
+			border: 1px solid #ddd;
+			padding: 8px;
+		}
+
+		th {
+			background-color: #fff;
+			color: black;
+		}
+
+        #button-container {
+            width: 100%;
+            height: 20vh; /* 20% of the viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+			margin-top: 100px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img id="logo" src="DHL_Logo.png" alt="Company Logo">
+    </div>
+
+    <div id="table-container">
+        <table>
+		<thead>
+            <tr>
+                <th>Sl.No</th>
+                <th>Metrics</th>
+                <th>Global Standard</th>
+                <th>Actual Performance</th>
+                <th>Unit</th>
+                <th>No of Issues</th>
+				<th>Issues List</th>
+                <th>Source</th>
+            </tr>
+		</thead>
+		<tbody id="table-body">
+                
+        </tbody>
+        </table>
+    </div>
+
+    <div id="button-container">
+        <button class="button">Station Metrics</button>
+        <button class="button">Refresh Layout</button>
+    </div>
+</body>
+<script>
+    // Fetch table data from the external API
+    const sampleData = [
+{ col1: '1', col2: 'Data Quality Issues - shipment',col3: 'N/A', col4: '12.9%',col5: 'Shipments', col6: '1590',col7: 'Go Detail', col8: 'CW1'},
+{ col1: '2a', col2: 'Data Quality Issues - CDZ Declarations',col3: 'N/A', col4: '91.9%',col5: 'Shipments', col6: '1600',col7: 'Go Detail', col8: 'CW1'},
+{ col1: '3a1OFR', col2: 'OFR TS completeness Index (OCI)',col3: 'N/A', col4: '14.9%',col5: 'Shipments', col6: '1000',col7: 'Go Detail', col8: 'CW1'},
+{ col1: '3a', col2: 'Data Quality Issues - shipment',col3: 'N/A', col4: '42.9%',col5: 'Shipments', col6: '14500',col7: 'Go Detail', col8: 'CW1'},
+{ col1: '2e', col2: 'Data Quality Issues - shipment',col3: 'N/A', col4: '87.0%',col5: 'Shipments', col6: '15021',col7: 'Go Detail', col8: 'CW1'},
+{ col1: '2c', col2: 'Data Quality Issues - shipment',col3: 'N/A', col4: '43.9%',col5: 'Shipments', col6: '12300',col7: 'Go Detail', col8: 'CW1'},
+{ col1: '3aOFR', col2: 'Data Quality Issues - shipment',col3: 'N/A', col4: '19.9%',col5: 'Shipments', col6: '15600',col7: 'Go Detail', col8: 'CW1'},
+{ col1: '3xAFR', col2: 'Data Quality Issues - shipment',col3: 'N/A', col4: '67.9%',col5: 'Shipments', col6: '100',col7: 'Go Detail', col8: 'CW1'},
+{ col1: '3a2OFR', col2: 'AFR FLO COU TS completeness/timeliness',col3: 'N/A', col4: '65%',col5: 'Shipments', col6: '15350',col7: 'Go Detail', col8: 'CW1'},
+{ col1: '3vAFR', col2: 'Data Quality Issues - shipment',col3: 'N/A', col4: '57.0%',col5: 'Shipments', col6: '15890',col7: 'Go Detail', col8: 'CW1'}
+			// Add more sample objects as needed
+        ];
+		
+        const tableBody = document.getElementById('table-body');
+        sampleData.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${row.col1}</td>
+                <td><a href="${row.col2.url}" target="_blank">${row.col2}</a></td>
+                <td>${row.col3}</td>
+				<td><a${row.col4}</td>
+				<td>${row.col5}</td>
+				<td>${row.col6}</td>
+				<td><a href="${row.col2.url}" target="_blank">${row.col2}</a></td>
+                <td>${row.col8}</td>
+            `;
+            tableBody.appendChild(tr);
+		});
+</script>
+
+
+</html>
